@@ -1,0 +1,4 @@
+name: M2SMP
+version: '1.0-SNAPSHOT'
+main: hewkawar.plugin.M2SMP
+api-version: '1.20'
