@@ -8,6 +8,8 @@ public final class M2SMP extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
+        getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
+
     }
 
     @Override
