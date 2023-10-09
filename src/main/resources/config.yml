@@ -1,0 +1,5 @@
+webhookUrl: YOUR_WEBHOOK_URL
+join-message: "&e%player% joined the game"
+leave-message: "&e%player% left the game"
+join-message-webhook: "%player% joined the game"
+leave-message-webhook: "%player% left the game"
