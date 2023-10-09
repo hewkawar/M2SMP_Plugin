@@ -2,7 +2,7 @@ package hewkawar.plugin;
 
 import hewkawar.plugin.commands.StatusCommand;
 import hewkawar.plugin.listener.JoinLeaveListener;
-import hewkawar.plugin.listener.StatusCommandListener;
+import hewkawar.plugin.listener.CommandListener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,7 +19,7 @@ public final class M2SMP extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
 
         // register Listener
-        getServer().getPluginManager().registerEvents(new StatusCommandListener(), this);
+        getServer().getPluginManager().registerEvents(new CommandListener(), this);
         getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
 
         // Check PlaceholderAPI is installed
