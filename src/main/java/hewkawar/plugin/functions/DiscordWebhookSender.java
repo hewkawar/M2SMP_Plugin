@@ -3,6 +3,7 @@ import java.awt.*;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class DiscordWebhookSender {
 
@@ -21,7 +22,7 @@ public class DiscordWebhookSender {
 
             // Send the request
             try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonPayload.getBytes("utf-8");
+                byte[] input = jsonPayload.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
             }
 

@@ -22,24 +22,30 @@ public class JoinLeaveListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         String joinMessage = this.plugin.getConfig().getString("join-message");
         String joinMessageWebhook = this.plugin.getConfig().getString("join-message-webhook");
-        if (joinMessage != null && joinMessageWebhook != null){
+        String webhookUrl = this.plugin.getConfig().getString("webhookUrl");
+        if (joinMessage != null){
             joinMessage = joinMessage.replace("%player%", e.getPlayer().getDisplayName());
-            joinMessageWebhook = joinMessageWebhook.replace("%player%", e.getPlayer().getDisplayName());
             e.setJoinMessage(ChatColor.translateAlternateColorCodes('&', joinMessage));
-            DiscordWebhookSender.sendToDiscordWebhook(this.plugin.getConfig().getString("webhookUrl"),joinMessageWebhook, 5763719);
+        }
+        if (webhookUrl != null && joinMessageWebhook != null) {
+            joinMessageWebhook = joinMessageWebhook.replace("%player%", e.getPlayer().getDisplayName());
+            DiscordWebhookSender.sendToDiscordWebhook(webhookUrl,joinMessageWebhook, 5763719);
         }
     }
 
     @EventHandler
     public void onLeave(PlayerQuitEvent e) {
-        Player player = e.getPlayer();
         String LeaveMessage = this.plugin.getConfig().getString("leave-message");
         String LeaveMessageWebhook = this.plugin.getConfig().getString("leave-message-webhook");
+        String webhookUrl = this.plugin.getConfig().getString("webhookUrl");
         if (LeaveMessage != null && LeaveMessageWebhook != null){
             LeaveMessage = LeaveMessage.replace("%player%", e.getPlayer().getDisplayName());
-            LeaveMessageWebhook = LeaveMessageWebhook.replace("%player%", e.getPlayer().getDisplayName());
             e.setQuitMessage(ChatColor.translateAlternateColorCodes('&', LeaveMessage));
-            DiscordWebhookSender.sendToDiscordWebhook(this.plugin.getConfig().getString("webhookUrl"),LeaveMessageWebhook, 15548997);
+        }
+        if (webhookUrl != null && LeaveMessageWebhook != null) {
+            LeaveMessageWebhook = LeaveMessageWebhook.replace("%player%", e.getPlayer().getDisplayName());
+            DiscordWebhookSender.sendToDiscordWebhook(webhookUrl,LeaveMessageWebhook, 15548997);
+
         }
     }
 }

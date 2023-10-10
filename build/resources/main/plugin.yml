@@ -1,9 +1,11 @@
 name: M2SMP
-version: '1.0'
+version: '1.0.4'
 main: hewkawar.plugin.M2SMP
 api-version: '1.20'
 commands:
   status:
     description: Open Player's Status
+  login:
+    description: Login
 
 softdepend: [PlaceholderAPI]
